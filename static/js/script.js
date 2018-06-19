@@ -2,6 +2,7 @@ $(document).ready(function() {
     $('#btn').click(function () {
         var nb1 = $("#nb1").val();
         var nb2 = $("#nb2").val();
+        var color = $("#couleur").val();
         // $.post('http://localhost:3002/addition', {
         //     nb1: nb1, 
         //     nb2: nb2
@@ -15,11 +16,14 @@ $(document).ready(function() {
             type: 'POST',
             data: {
                 nb1: nb1,
-                nb2: nb2
+                nb2: nb2,
+                color: color
             },
-            url: "http://localhost:3002/addition",
-            success: function (calcul) {
-                $('#resultat').append(calcul);
+            url: "http://localhost:8800/addition",
+            success: function (resultat, color) {
+                //$('#resultat').append('' + resultat + ' ' + req.body.color + ' ' );
+                $('#resultat').append(resultat );
+                $('#choix_couleur').append(color);
             },
             error: function (e) {
                 console.log("erreur :", e);
