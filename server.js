@@ -39,4 +39,4 @@ server.post("/addition",function(req, res){
 });
 
 
-server.listen(3105);    
+server.listen(3002);    
